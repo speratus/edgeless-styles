@@ -1,0 +1,27 @@
+{
+  "name": "edgless-css",
+  "version": "1.0.0",
+  "description": "The CSS for Edgeless",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speratus/edgeless-styles.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "sass"
+  ],
+  "author": "Andrew Luchuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/speratus/edgeless-styles/issues"
+  },
+  "homepage": "https://github.com/speratus/edgeless-styles#readme",
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}
