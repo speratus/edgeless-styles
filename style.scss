@@ -1,5 +1,6 @@
 $deep-blue: #0090ff;
 $light-blue: #04e6ff;
+$button-blue: #a9f6ff;
 $font-gray: #4c4949;
 $font-dark: #1f1f1f;
 $start-red: #ff7349;
@@ -15,12 +16,45 @@ $light-deep-gradient: linear-gradient(
     $light-blue, $deep-blue
 );
 
+$breakpoints: (
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px
+);
+
+@mixin respond-to($breakpoint) {
+    $value: map-get($breakpoints, $breakpoint);
+
+    @if $value != null {
+        @media (min-width: $value) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Unfortunately, no value for `#{$breakpoint}` could be retrieved. Make sure the value is defined in `$breakpoints`.";
+    }
+}
+
+@include respond-to(large) {
+    main {
+        margin: auto;
+        max-width: 600px;
+    }
+}
+
+@include respond-to(medium) {
+    main {
+        margin: auto;
+        max-width: 700px;
+    }
+}
+
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     margin: 0px;
-    --main-font-color: #4c4949;
-    color: var(--main-font-color);
+    color: $font-gray;
 }
 
 html, body {
@@ -39,9 +73,7 @@ button {
 }
 
 header {
-    background-image: linear-gradient(
-        #0090ff, #04e6ff
-    );
+    background-image: $deep-light-gradient;
     text-align: center;
     padding: 5px;
     height: 36px;
@@ -49,20 +81,20 @@ header {
 }
 
 footer {
-    background-image: linear-gradient(
-        #04e6ff, #0090ff
-    );
+    background-image: $light-deep-gradient;
     text-align: center;
     flex-grow: 1;
 }
 
 .button {
-    background-image: linear-gradient(
-        #ffbf49, #f17c38
-    );
+    // background-image: linear-gradient(
+    //     #ffbf49, #f17c38
+    // );
+    // background-color: $deep-blue;
     border-radius: 5px;
     padding: 7px;
     box-shadow: 0px 3px 6px rgba(0,0,0, 0.29);
+    background-color: $button-blue;
 }
 
 .left {
@@ -71,7 +103,7 @@ footer {
 }
 
 .baloon.light {
-    background-color: #04e6ff;
+    background-color: $light-blue;
 }
 
 .baloon-spacer {
@@ -80,21 +112,22 @@ footer {
 }
 
 .button.danger {
-    background-image: linear-gradient(
-        #ff7349, #fd2a00
-    );
+    // background-image: linear-gradient(
+    //     #ff7349, #fd2a00
+    // );
+    background-color: $end-red;
 }
 
 .button.danger:hover {
     background-image: linear-gradient(
-        #fd2a00, #ff7349
+        $end-red, $start-red
     );
     cursor: default;
 }
 
 .button:hover {
     background-image: linear-gradient(
-        #f17c38, #ffff49
+        $deep-blue, $light-blue
     );
     cursor: default;
 }
@@ -107,7 +140,7 @@ footer {
 
 .baloon {
     border-radius: 15px;
-    background-color: #0090ff;
+    background-color: $deep-blue;
     padding: 10px;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -143,6 +176,5 @@ footer {
 }
 
 .dark-font {
-    --dark-font: #1f1f1f;
-    color: var(--dark-font);
+    color: $font-dark;
 }
