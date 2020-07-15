@@ -73,6 +73,10 @@ footer {
   background-color: #a9f6ff;
 }
 
+a.button {
+  text-decoration: none;
+}
+
 .left {
   text-align: left;
   padding-left: 15px;
