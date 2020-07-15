@@ -61,6 +61,10 @@ html, body {
     height: 100vh;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 main {
     text-align: center;
     padding: 10px;
@@ -70,6 +74,27 @@ main {
 button {
     border: none;
     padding: 0px;
+}
+
+input[type="submit"] {
+    border: none;
+}
+
+input[type="input"] {
+    border: 0px;
+}
+
+.input {
+    padding: 10px 10px 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 3px 6px;
+    border: 1px solid #707070;
+}
+
+.input:focus {
+    outline: none;
+    // border: 1px solid $deep-blue;
+    box-shadow: 0px 3px 6px $deep-blue;
 }
 
 header {
